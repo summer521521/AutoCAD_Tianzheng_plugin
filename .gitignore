@@ -1,0 +1,27 @@
+﻿# local runtime/config
+.env
+*.local.*
+
+# logs and generated outputs
+*.log
+*.xlog
+*.tmp
+*.cache
+*.sqlite
+*.db
+*.dwg
+*.slx
+*.mat
+
+# dependency and tool caches
+node_modules/
+.venv/
+.venv*/
+__pycache__/
+.pytest_cache/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
