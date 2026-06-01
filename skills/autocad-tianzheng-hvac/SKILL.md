@@ -82,7 +82,7 @@ save|<output-root>\drawings\smoke_autocad_tianzheng.dwg
 
 ## 排障顺序
 
-1. `manage_session` 连接失败：确认 AutoCAD 和天正路径存在，再看 AutoCAD COM ProgID。AutoCAD 2025 通常对应 `AutoCAD.Application.25`；AutoCAD 2026 API 历史标记为 25.1，实际注册表可能仍是版本化 ProgID。以 `AUTOCAD_EXE`、`LocalServer32` 和 `/Automation /p CodexAutomation` 的注册结果为准，不要只靠硬编码 ProgID 判断。
+1. `manage_session` 连接失败：确认 AutoCAD 和天正路径存在，再看 AutoCAD COM ProgID。Autodesk 2026 ActiveX 文档要求 AutoCAD 2026 使用 `AutoCAD.Application.25.1`、AutoCAD 2025 使用 `AutoCAD.Application.25.0`；`AutoCAD.Application.25` 在 2025/2026 并存时可能指向不一致。以 `AUTOCAD_EXE`、`LocalServer32` 和 `/Automation /p CodexAutomation` 的注册结果为准，不要只靠硬编码 ProgID 判断。
 2. `probe` 显示 `tangent_root_exists=false` 或 ARX 文件不存在：确认 `TIANZHENG_ROOT` 指向正确的天正安装根目录；如需注册表修复，使用本机维护脚本并重启 AutoCAD 和 Codex。
 3. `TRUSTEDPATHS` 或 `SupportPath` 不含天正 `SYS`、`SYS25x64`：这是稳定自动化模式的预期状态；只有调试天正命令时才手动加载 ARX，不要把这些路径写进 `CodexAutomation` profile。
 4. ARX 加载失败：确认文件在 `TIANZHENG_ROOT` 下的对应 `SYS25x64` 目录，再用 `load_arx` 单独加载具体路径。

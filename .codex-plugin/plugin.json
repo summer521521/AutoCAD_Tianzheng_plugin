@@ -1,6 +1,6 @@
 {
   "name": "autocad-tianzheng-tools",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Personal Codex plugin for AutoCAD and Tianzheng HVAC automation through the autocad_tianzheng MCP server.",
   "author": {
     "name": "summer521521",
