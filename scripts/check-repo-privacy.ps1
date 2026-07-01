@@ -3,11 +3,15 @@
 $repoRoot = (git rev-parse --show-toplevel).Trim()
 $raw = git -C $repoRoot ls-files -z
 $tracked = ($raw -split "`0") | Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
+$slash = [regex]::Escape("\")
+$githubClassicToken = "gh" + "p_"
+$githubFineGrainedToken = "github" + "_pat_"
+$openAiKeyPrefix = "s" + "k-"
 $patterns = @(
-  @{ Name = "Windows user profile path"; Regex = "[A-Za-z]:\\Users\\[^\\\r\n]+(?:\\[^\r\n]*)?" },
+  @{ Name = "Windows user profile path"; Regex = "[A-Za-z]:$($slash)Users$($slash)[^$($slash)\r\n]+(?:$($slash)[^\r\n]*)?" },
   @{ Name = "POSIX home path"; Regex = "/(?:Users|home)/[^/\r\n]+(?:/[^\r\n]*)?" },
-  @{ Name = "GitHub token"; Regex = "ghp_[A-Za-z0-9_]{20,}|github_pat_[A-Za-z0-9_]{20,}" },
-  @{ Name = "OpenAI style key"; Regex = "sk-[A-Za-z0-9_-]{20,}" },
+  @{ Name = "GitHub token"; Regex = "$($githubClassicToken)[A-Za-z0-9_]{20,}|$($githubFineGrainedToken)[A-Za-z0-9_]{20,}" },
+  @{ Name = "OpenAI style key"; Regex = "$($openAiKeyPrefix)[A-Za-z0-9_-]{20,}" },
   @{ Name = "Private key block"; Regex = "-----BEGIN (?:RSA |OPENSSH |EC |DSA )?PRIVATE KEY-----" }
 )
 $blockedExtensions = @(".env", ".pem", ".key", ".pfx", ".sqlite", ".db", ".dwg", ".slx", ".mat", ".log", ".xlog")

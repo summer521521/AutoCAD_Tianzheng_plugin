@@ -1,13 +1,15 @@
 {
-  "autocad_tianzheng": {
-    "command": "powershell.exe",
-    "args": [
-      "-NoProfile",
-      "-ExecutionPolicy",
-      "Bypass",
-      "-File",
-      "./scripts/start-autocad-tianzheng-mcp.ps1"
-    ],
-    "tool_timeout_sec": 300
+  "mcpServers": {
+    "autocad_tianzheng": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "./scripts/start-autocad-tianzheng-mcp.ps1"
+      ],
+      "tool_timeout_sec": 300
+    }
   }
 }

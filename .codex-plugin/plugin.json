@@ -1,14 +1,14 @@
 {
   "name": "autocad-tianzheng-tools",
   "version": "0.1.2",
-  "description": "Personal Codex plugin for AutoCAD and Tianzheng HVAC automation through the autocad_tianzheng MCP server.",
+  "description": "Codex plugin for AutoCAD 2026 and Tianzheng HVAC T30 automation through the autocad_tianzheng MCP server.",
   "author": {
     "name": "summer521521",
     "url": "https://github.com/summer521521"
   },
-  "homepage": "https://github.com/summer521521/codex-personal-plugins",
-  "repository": "https://github.com/summer521521/codex-personal-plugins",
-  "license": "UNLICENSED",
+  "homepage": "https://github.com/summer521521/AutoCAD_Tianzheng_plugin",
+  "repository": "https://github.com/summer521521/AutoCAD_Tianzheng_plugin",
+  "license": "MIT",
   "keywords": [
     "codex",
     "mcp",
@@ -21,7 +21,8 @@
   "interface": {
     "displayName": "AutoCAD Tianzheng Tools",
     "shortDescription": "Control AutoCAD and Tianzheng HVAC.",
-    "longDescription": "Packages a local MCP launcher and skill guidance for AutoCAD 2025 and Tianzheng HVAC drawing, scanning, and troubleshooting workflows.",
+    "composerIcon": "./assets/icon.svg",
+    "longDescription": "Packages a local MCP launcher and skill guidance for AutoCAD 2026 and Tianzheng HVAC T30 drawing, scanning, and troubleshooting workflows. The plugin MCP server appears as autocad_tianzheng.",
     "developerName": "summer521521",
     "category": "Productivity",
     "capabilities": [
